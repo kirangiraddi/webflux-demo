@@ -1,17 +1,21 @@
 package com.example.webfluxdemo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.server.ServerRequest;
-import org.springframework.web.reactive.function.server.ServerResponse;
-import reactor.core.publisher.Mono;
 
-@Component
+@RestController
 public class HelloWorldHandler {
 
-    public Mono<ServerResponse> hello(ServerRequest request) {
-        return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN)
-                .body(BodyInserters.fromObject("Hello, World"));
+    @Autowired
+    private GreetingService service;
+
+
+    @GetMapping("/hello")
+    public String displayGreetings(){
+        return service.displayGreeting();
     }
+
+
 }
