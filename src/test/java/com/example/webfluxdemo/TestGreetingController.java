@@ -18,7 +18,7 @@ public class TestGreetingController {
     private GreetingServiceImpl empl;
 
     @Test
-    public void checkController() throws Exception {
+    public void checkController()  {
         webTestClient.get()
                 .uri("/hello")
                 .accept(MediaType.APPLICATION_JSON)
