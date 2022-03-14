@@ -15,7 +15,7 @@ public class TestGreetingController {
     WebTestClient webTestClient;
 
     @MockBean
-    private GreetingServiceImpl empl;
+    private GreetingServiceImpl serv;
 
     @Test
     public void checkController()  {
