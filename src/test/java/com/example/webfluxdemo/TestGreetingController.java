@@ -18,7 +18,7 @@ public class TestGreetingController {
     private GreetingServiceImpl empl;
 
     @Test
-    public void shouldReturnDefaultMessage() throws Exception {
+    public void checkController() throws Exception {
         webTestClient.get()
                 .uri("/hello")
                 .accept(MediaType.APPLICATION_JSON)
