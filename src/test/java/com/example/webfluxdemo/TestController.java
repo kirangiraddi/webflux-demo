@@ -8,14 +8,14 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-@WebFluxTest(HelloWorldHandler.class)
-public class TestGreetingController {
+@WebFluxTest(Controller.class)
+public class TestController {
 
     @Autowired
     WebTestClient webTestClient;
 
     @MockBean
-    private GreetingServiceImpl serv;
+    private ServicesImpl serv;
 
     @Test
     public void checkController()  {

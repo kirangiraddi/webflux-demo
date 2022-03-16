@@ -6,12 +6,12 @@ import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@WebFluxTest(GreetingServiceImpl.class)
-public class TestGreetingService {
+@WebFluxTest(ServicesImpl.class)
+public class TestServices {
 
 
     @Autowired
-    GreetingServiceImpl hello;
+    ServicesImpl hello;
 
     @Test
     public void getEmployeeByIdTest()

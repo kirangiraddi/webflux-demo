@@ -5,15 +5,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class HelloWorldHandler {
+public class Controller {
 
     @Autowired
-    private GreetingService service;
+    private Services service;
 
 
     @RequestMapping("/hello")
     public String displayGreetings(){
         return service.displayGreeting();
+    }
+
+    @RequestMapping("/uuid")
+    public String displayUUID(){
+        return service.displayuuid();
     }
 
 
