@@ -13,12 +13,19 @@ public class Controller {
 
     @RequestMapping("/hello")
     public String displayGreetings(){
+
         return service.displayGreeting();
+
     }
 
     @RequestMapping("/uuid")
     public String displayUUID(){
         return service.displayuuid();
+    }
+
+    @RequestMapping("/json")
+    public Object displayhttpjson(){
+        return service.displayhttpjson();
     }
 
 

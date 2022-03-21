@@ -1,6 +1,7 @@
 package com.example.webfluxdemo;
 
 
+import com.example.webfluxdemo.model.Object;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,5 +23,14 @@ public class ServicesImpl implements Services {
         return uuid;
     }
 
-    ;
+    @Override
+    public Object displayhttpjson() {
+        String url = "https://httpbin.org/json";
+        RestTemplate restTemplate = new RestTemplate();
+        Object json = restTemplate.getForObject(url, Object.class);
+        System.out.println(json);
+        return json;
+    }
+
+
 }
