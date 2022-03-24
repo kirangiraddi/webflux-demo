@@ -1,7 +1,12 @@
 package com.example.webfluxdemo;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
+
+import java.time.Duration;
 
 
 @RestController
@@ -26,6 +31,20 @@ public class Controller {
     @RequestMapping("/json")
     public Object displayhttpjson(){
         return service.displayhttpjson();
+    }
+
+    @RequestMapping("/uuidflux")
+    public Flux<String> displayUUIDflux(){ return service.display10uuid(); }
+
+
+    @GetMapping(value = "/uuidstream")
+    public Flux<String> streamDataFlux()  {
+
+        Flux<String> flux = service.display10uuid();
+        return Flux
+                .from(flux)
+                .delayElements(Duration.ofSeconds(1))
+                .log();
     }
 
 

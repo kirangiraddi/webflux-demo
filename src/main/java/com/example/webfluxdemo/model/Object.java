@@ -20,6 +20,12 @@ public class Object {
         this.slideshow = slideshow;
     }
 
+    @Override
+    public String toString() {
+        return "Object{" +
+                "slideshow=" + slideshow +
+                '}';
+    }
 }
 
 

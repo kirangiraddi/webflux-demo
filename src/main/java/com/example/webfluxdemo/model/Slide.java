@@ -40,4 +40,13 @@ public class Slide {
     public void setItems(ArrayList<String> items) {
         this.items = items;
     }
+
+    @Override
+    public String toString() {
+        return "Slide{" +
+                "title='" + title + '\'' +
+                ", type='" + type + '\'' +
+                ", items=" + items +
+                '}';
+    }
 }
