@@ -2,9 +2,13 @@ package com.example.webfluxdemo;
 
 
 import com.example.webfluxdemo.model.Object;
+import com.example.webfluxdemo.model.Object2;
+import com.github.wnameless.json.flattener.JsonFlattener;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import reactor.core.publisher.Flux;
+
+import java.util.Map;
 
 @Service
 public class ServicesImpl implements Services {
@@ -49,6 +53,23 @@ public class ServicesImpl implements Services {
         return  uuidflux;
     }
 
+    @Override
+    public Map<String, java.lang.Object> flatmapjson() {
+        String url = "https://run.mocky.io/v3/bacada99-f016-42e0-ba48-a9b0478f0d8b";
+        RestTemplate restTemplate = new RestTemplate();
+        String response = restTemplate.getForObject(url, String.class);
+        String flattenedJson = JsonFlattener.flatten(response);
+        Map<String, java.lang.Object> flattenedJsonMap = JsonFlattener.flattenAsMap(response);
+        return flattenedJsonMap;
+    }
+
+    @Override
+    public Object2 displaymockyjson() {
+        String url = "https://run.mocky.io/v3/bacada99-f016-42e0-ba48-a9b0478f0d8b";
+        RestTemplate restTemplate = new RestTemplate();
+        Object2 json = restTemplate.getForObject(url, Object2.class);
+        return json;
+    }
 
 
 }

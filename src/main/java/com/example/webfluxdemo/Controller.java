@@ -47,5 +47,17 @@ public class Controller {
                 .log();
     }
 
+    @GetMapping(value = "/flatjson")
+    public String displayflatjson(){
+        String flat = service.flatmapjson().toString();
+         flat=flat.replaceAll(",", "<br>");
+        return flat;
+    }
+
+    @RequestMapping("/mocky")
+    public Object displaymockyjson(){
+        return service.displaymockyjson();
+    }
+
 
 }
